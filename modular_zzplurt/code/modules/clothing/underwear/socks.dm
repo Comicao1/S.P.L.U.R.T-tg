@@ -24,6 +24,28 @@
 	var/mob/living/carbon/human/human = user
 	human.socks = "Nude"
 
+/obj/item/clothing/underwear/socks/thigh/thigh_cow
+	name = "cow thigh high socks"
+	desc = "Moo?"
+	icon_state = "socks_cow"
+	icon = 'modular_zzplurt/icons/obj/clothing/underwear.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/underwear.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/underwear_digi.dmi'
+
+/obj/item/clothing/underwear/socks/thigh/fishnet
+	name = "Fishnet tights"
+	desc = "The thickest of thighs will make this net break rather easily"
+	icon_state = "fishnet"
+	icon = 'modular_zzplurt/icons/obj/clothing/underwear.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/underwear.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/underwear_digi.dmi'
+	body_parts_covered = FEET|LEGS|GROIN
+
+/obj/item/clothing/underwear/socks/thigh/fishnet/white
+	name = "White Fishnet tights"
+	icon_state = "fishnet_w"
+
+
 /**
  * Do not declare new shirt or bra objects directly through typepaths, use SHIRT_OBJECT(class)/BRA_OBJECT(class) instead
  * Example:

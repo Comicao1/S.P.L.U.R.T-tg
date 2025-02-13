@@ -268,3 +268,23 @@
 	. = ..()
 	if (prob(7))
 		drinker.emote("giggle")
+/datum/reagent/consumable/ethanol/lean/on_mob_life(mob/living/carbon/C)
+	var/mob/living/carbon/human/M = C
+	var/message = "I LOVE LEAN!!"
+	M.Dizzy(40)
+	M.Jitter(40)
+	M.set_drugginess(50)
+	switch(current_cycle)
+		if(1)
+			M.say(message)
+		if(80 to 100)
+			M.adjustOrganLoss(ORGAN_SLOT_LIVER, 1)
+			M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1) // it's cough syrup what'd you expect?
+		if(100 to INFINITY)
+			M.adjustOrganLoss(ORGAN_SLOT_LIVER, 2)
+			M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2)
+			if(!M.undergoing_cardiac_arrest() && M.can_heartattack() && prob(1))
+				M.set_heartattack(TRUE)
+				if(M.stat == CONSCIOUS)
+					M.visible_message(span_userdanger("[M] clutches at [M.p_their()] chest as if [M.p_their()] heart stopped!")) // too much lean :(
+	..()
